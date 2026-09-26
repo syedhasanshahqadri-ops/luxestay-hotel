@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LuxeStay — premium hotel booking experience." />
+  <title>LuxeStay — Luxury Hotel Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <a class="logo" href="#home" aria-label="LuxeStay home">
+      <span class="logo-mark">L</span>
+      <span>Luxe<span>Stay</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#experience">Experience</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+
+    <a class="nav-cta" href="#booking">Book Now <span>↗</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-slides">
+        <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85')"></div>
+        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85')"></div>
+        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85')"></div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content reveal">
+        <p class="eyebrow light">5-STAR URBAN RETREAT</p>
+        <h1>Stay somewhere<br><em>extraordinary.</em></h1>
+        <p class="hero-copy">A refined stay where modern luxury, thoughtful service and unforgettable views meet.</p>
+        <div class="hero-actions">
+          <a href="#rooms" class="btn btn-gold">Explore Rooms <span>→</span></a>
+          <a href="#experience" class="text-link">Discover LuxeStay <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button id="prevSlide" aria-label="Previous slide">←</button>
+        <div class="dots" id="dots"></div>
+        <button id="nextSlide" aria-label="Next slide">→</button>
+      </div>
+
+      <!-- booking strip -->
+      <div class="booking-strip" id="booking">
+        <div class="booking-field">
+          <span class="field-icon">⌖</span>
+          <div><small>DESTINATION</small><strong>LuxeStay, Dubai</strong></div>
+        </div>
+        <div class="booking-field">
+          <span class="field-icon">▣</span>
+          <div><small>CHECK IN</small><strong id="checkInLabel">Select date</strong></div>
+        </div>
+        <div class="booking-field">
+          <span class="field-icon">▣</span>
+          <div><small>CHECK OUT</small><strong id="checkOutLabel">Select date</strong></div>
+        </div>
+        <div class="booking-field">
+          <span class="field-icon">♙</span>
+          <div><small>GUESTS</small><strong>2 Guests</strong></div>
+        </div>
+        <button class="search-btn" id="searchBtn">Search Rooms <span>→</span></button>
+      </div>
+    </section>
+
+    <!-- ===== INTRO ===== -->
+    <section class="intro section-pad">
+      <div class="section-label reveal">WELCOME TO LUXESTAY</div>
+      <div class="intro-grid">
+        <h2 class="display reveal">More than a room.<br><em>A feeling.</em></h2>
+        <div class="intro-copy reveal">
+          <p>Designed for guests who appreciate the finer things, LuxeStay blends timeless architecture with contemporary comfort.</p>
+          <p>From sunrise breakfasts to late-night city views, every detail is crafted to make your stay effortless.</p>
+          <a href="#experience" class="arrow-link">Our story <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ROOMS ===== -->
+    <section class="rooms-section section-pad" id="rooms">
+      <div class="section-heading reveal">
+        <div>
+          <div class="section-label">STAY YOUR WAY</div>
+          <h2 class="display">Rooms & <em>Suites</em></h2>
+        </div>
+        <p>Every room is a private sanctuary. Choose your view, your space, your experience.</p>
+      </div>
+
+      <div class="filter-bar reveal">
+        <div class="filter-title">Nightly price</div>
+        <div class="range-wrap">
+          <input id="priceRange" type="range" min="120" max="650" value="650" step="10">
+          <div class="range-labels"><span>$120</span><strong>Up to $<span id="priceValue">650</span> / night</strong><span>$650+</span></div>
+        </div>
+        <div class="room-count"><span id="roomCount">6</span> rooms</div>
+      </div>
+
+      <div class="rooms-grid" id="roomsGrid">
+        <article class="room-card reveal" data-price="180">
+          <div class="room-img">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85" alt="Deluxe king room">
+            <span class="room-tag">BEST VALUE</span>
+            <button class="heart" aria-label="Save room">♡</button>
+          </div>
+          <div class="room-info">
+            <div class="room-type">DELUXE · KING</div>
+            <h3>City Deluxe</h3>
+            <p>Warm interiors, king bed and a panoramic skyline view.</p>
+            <div class="room-meta"><span>♧ 2 Guests</span><span>⌂ 42 m²</span><span>Wi-Fi</span></div>
+            <div class="room-bottom"><div><b>$180</b> <small>/ night</small></div><button class="book-room" data-room="City Deluxe" data-price="180">Book room →</button></div>
+          </div>
+        </article>
+
+        <article class="room-card reveal" data-price="240">
+          <div class="room-img">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85" alt="Executive suite">
+            <span class="room-tag">POPULAR</span>
+            <button class="heart" aria-label="Save room">♡</button>
+          </div>
+          <div class="room-info">
+            <div class="room-type">EXECUTIVE · KING</div>
+            <h3>Skyline Suite</h3>
+            <p>Separate lounge, floor-to-ceiling windows and lounge access.</p>
+            <div class="room-meta"><span>♧ 3 Guests</span><span>⌂ 58 m²</span><span>Breakfast</span></div>
+            <div class="room-bottom"><div><b>$240</b> <small>/ night</small></div><button class="book-room" data-room="Skyline Suite" data-price="240">Book room →</button></div>
+          </div>
+        </article>
+
+        <article class="room-card reveal" data-price="320">
+          <div class="room-img">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85" alt="Pool villa">
+            <span class="room-tag">SIGNATURE</span>
+            <button class="heart" aria-label="Save room">♡</button>
+          </div>
+          <div class="room-info">
+            <div class="room-type">PREMIER · KING</div>
+            <h3>Pool Residence</h3>
+            <p>Private terrace, plunge pool and a beautifully appointed suite.</p>
+            <div class="room-meta"><span>♧ 3 Guests</span><span>⌂ 74 m²</span><span>Pool</span></div>
+            <div class="room-bottom"><div><b>$320</b> <small>/ night</small></div><button class="book-room" data-room="Pool Residence" data-price="320">Book room →</button></div>
+          </div>
+        </article>
+
+        <article class="room-card reveal" data-price="390">
+          <div class="room-img">
+            <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1200&q=85" alt="Luxury suite">
+            <button class="heart" aria-label="Save room">♡</button>
+          </div>
+          <div class="room-info">
+            <div class="room-type">LUXURY · KING</div>
+            <h3>Grand Residence</h3>
+            <p>Generous living space, private dining and premium city views.</p>
+            <div class="room-meta"><span>♧ 4 Guests</span><span>⌂ 91 m²</span><span>Butler</span></div>
+            <div class="room-bottom"><div><b>$390</b> <small>/ night</small></div><button class="book-room" data-room="Grand Residence" data-price="390">Book room →</button></div>
+          </div>
+        </article>
+
+        <article class="room-card reveal" data-price="480">
+          <div class="room-img">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85" alt="Presidential suite">
+            <span class="room-tag">PREMIUM</span>
+            <button class="heart" aria-label="Save room">♡</button>
+          </div>
+          <div class="room-info">
+            <div class="room-type">PRESIDENTIAL</div>
+            <h3>Royal Sky Suite</h3>
+            <p>Our highest floor, private dining room and sunset lounge.</p>
+            <div class="room-meta"><span>♧ 4 Guests</span><span>⌂ 128 m²</span><span>Transfer</span></div>
+            <div class="room-bottom"><div><b>$480</b> <small>/ night</small></div><button class="book-room" data-room="Royal Sky Suite" data-price="480">Book room →</button></div>
+          </div>
+        </article>
+
+        <article class="room-card reveal" data-price="620">
+          <div class="room-img">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85" alt="Penthouse suite">
+            <span class="room-tag">ULTRA LUXURY</span>
+            <button class="heart" aria-label="Save room">♡</button>
+          </div>
+          <div class="room-info">
+            <div class="room-type">PENTHOUSE · 2 BED</div>
+            <h3>Luxe Penthouse</h3>
+            <p>A private world above the city with expansive entertaining areas.</p>
+            <div class="room-meta"><span>♧ 6 Guests</span><span>⌂ 186 m²</span><span>Chef</span></div>
+            <div class="room-bottom"><div><b>$620</b> <small>/ night</small></div><button class="book-room" data-room="Luxe Penthouse" data-price="620">Book room →</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== AMENITIES ===== -->
+    <section class="amenities-section" id="amenities">
+      <div class="amenities-image reveal">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=85" alt="Luxury hotel spa">
+      </div>
+      <div class="amenities-content">
+        <div class="section-label reveal">THE LUXESTAY STANDARD</div>
+        <h2 class="display reveal">Everything you need.<br><em>Nothing you don't.</em></h2>
+        <div class="amenity-list">
+          <div class="amenity reveal"><span>01</span><div><h3>24/7 Personal Service</h3><p>Our guest team is always one message away.</p></div></div>
+          <div class="amenity reveal"><span>02</span><div><h3>Infinity Rooftop Pool</h3><p>Swim above the city with uninterrupted views.</p></div></div>
+          <div class="amenity reveal"><span>03</span><div><h3>Wellness & Spa</h3><p>Restorative treatments, sauna and private wellness suites.</p></div></div>
+          <div class="amenity reveal"><span>04</span><div><h3>Signature Dining</h3><p>Locally inspired menus from breakfast to late night.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="experience section-pad" id="experience">
+      <div class="section-heading reveal">
+        <div><div class="section-label">BEYOND THE ROOM</div><h2 class="display">Make it <em>memorable.</em></h2></div>
+        <p>Curated experiences turn a great stay into the story you tell everyone about.</p>
+      </div>
+      <div class="experience-grid">
+        <div class="experience-card large reveal" style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=85')">
+          <div><span>01 · CITY</span><h3>Private City Escape</h3><a href="#booking">Explore →</a></div>
+        </div>
+        <div class="experience-card reveal" style="background-image:url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85')">
+          <div><span>02 · WELLNESS</span><h3>Sunrise Ritual</h3><a href="#booking">Explore →</a></div>
+        </div>
+        <div class="experience-card reveal" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85')">
+          <div><span>03 · DINING</span><h3>Chef's Table</h3><a href="#booking">Explore →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="reviews-section section-pad" id="reviews">
+      <div class="section-label reveal">GUEST NOTES</div>
+      <div class="review-wrap reveal">
+        <div class="quote-mark">“</div>
+        <div class="review-slider" id="reviewSlider">
+          <article class="review active"><p>From the first welcome to the final morning, everything felt considered. The room was stunning, the service effortless, and the view was unforgettable.</p><div class="review-person"><div class="avatar">AM</div><div><strong>Amelia Morgan</strong><span>London, UK · Stayed 4 nights</span></div><b>★★★★★</b></div></article>
+          <article class="review"><p>LuxeStay manages to feel intimate despite being a full-service luxury hotel. The breakfast and rooftop pool were highlights of our trip.</p><div class="review-person"><div class="avatar">DK</div><div><strong>Daniel Kim</strong><span>Seoul, South Korea · Stayed 3 nights</span></div><b>★★★★★</b></div></article>
+          <article class="review"><p>The suite exceeded expectations. Beautiful design, excellent housekeeping and genuinely thoughtful staff. We will absolutely return.</p><div class="review-person"><div class="avatar">SR</div><div><strong>Sofia Rossi</strong><span>Milan, Italy · Stayed 5 nights</span></div><b>★★★★★</b></div></article>
+        </div>
+        <div class="review-controls"><button id="reviewPrev">←</button><span id="reviewNum">01 / 03</span><button id="reviewNext">→</button></div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="final-cta">
+      <div class="cta-bg"></div>
+      <div class="cta-content reveal">
+        <div class="section-label light">YOUR NEXT ESCAPE</div>
+        <h2 class="display light">Your room is<br><em>waiting.</em></h2>
+        <a href="#rooms" class="btn btn-gold">Browse Rooms <span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div><a class="logo footer-logo" href="#home"><span class="logo-mark">L</span><span>Luxe<span>Stay</span></span></a><p>Thoughtful luxury.<br>Beautifully delivered.</p></div>
+      <div class="footer-col"><h4>Explore</h4><a href="#rooms">Rooms & Suites</a><a href="#amenities">Amenities</a><a href="#experience">Experiences</a><a href="#reviews">Guest Reviews</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="mailto:hello@luxestay.example">hello@luxestay.example</a><a href="tel:+971555555555">+971 55 555 5555</a><span>Dubai, UAE</span></div>
+      <div class="footer-col"><h4>Stay in touch</h4><p>Monthly inspiration, offers & hotel news.</p><form id="newsletter"><input type="email" placeholder="Your email address" required><button>→</button></form></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 LuxeStay. All rights reserved.</span><span>Privacy · Terms · Accessibility</span></div>
+  </footer>
+
+  <!-- ===== BOOKING MODAL ===== -->
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close>×</button>
+      <div class="section-label">RESERVATION</div>
+      <h2>Book your <em>stay.</em></h2>
+      <p class="modal-sub">Complete the details below. This demo confirms the reservation locally.</p>
+      <form id="bookingForm">
+        <div class="selected-room"><span>Selected room</span><strong id="selectedRoom">City Deluxe</strong><b>$<span id="selectedPrice">180</span> / night</b></div>
+        <div class="form-grid">
+          <label>First name<input name="firstName" required placeholder="Alex"></label>
+          <label>Last name<input name="lastName" required placeholder="Morgan"></label>
+          <label>Email<input type="email" name="email" required placeholder="alex@example.com"></label>
+          <label>Guests<select name="guests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option></select></label>
+          <label>Check in<input type="date" name="checkin" required></label>
+          <label>Check out<input type="date" name="checkout" required></label>
+        </div>
+        <button class="btn btn-dark" type="submit">Confirm Reservation <span>→</span></button>
+      </form>
+      <div class="success-message" id="successMessage">✓ Reservation request received. We'll be in touch shortly.</div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
