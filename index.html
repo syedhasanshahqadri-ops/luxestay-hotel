@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LuxeStay - premium hotel booking with 20 rooms and suites, priced per night in PKR.">
+<title>LuxeStay | Luxury Hotel Booking</title>
+<script>document.documentElement.dataset.theme=localStorage.getItem("lx_theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar" id="navbar">
+  <a class="logo" href="#home" aria-label="LuxeStay home"><span class="logo-mark">L</span><span>Luxe<b>Stay</b></span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Home</a><a href="#rooms">Rooms</a><a href="#amenities">Amenities</a><a href="#experience">Experience</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <button class="icon-btn" id="themeBtn" aria-label="Switch light or dark theme">◐</button>
+    <a class="nav-cta" href="#rooms">Book Now <span>↗</span></a>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="eyebrow light rise" style="--d:.1s">5-STAR URBAN RETREAT</p>
+    <h1 class="rise" style="--d:.25s">Stay somewhere<br><em>extraordinary.</em></h1>
+    <p class="hero-copy rise" style="--d:.4s">Twenty rooms and suites where modern luxury, thoughtful service and unforgettable views meet. Priced per night in PKR.</p>
+    <div class="hero-actions rise" style="--d:.55s"><a href="#rooms" class="btn btn-gold">Explore Rooms <span>→</span></a><a href="#experience" class="text-link">Discover LuxeStay <span>↗</span></a></div>
+  </div>
+  <div class="slider-controls"><button id="prevSlide" aria-label="Previous slide">←</button><div class="dots" id="dots"></div><button id="nextSlide" aria-label="Next slide">→</button></div>
+  <div class="booking-strip" id="booking">
+    <div class="booking-field"><small>DESTINATION</small><strong>LuxeStay, Karachi</strong></div>
+    <label class="booking-field"><small>CHECK IN</small><input type="date" id="sIn"></label>
+    <label class="booking-field"><small>CHECK OUT</small><input type="date" id="sOut"></label>
+    <label class="booking-field"><small>GUESTS</small><select id="sGuests"><option value="1">1 Guest</option><option value="2" selected>2 Guests</option><option value="3">3 Guests</option><option value="4">4 Guests</option><option value="5">5+ Guests</option></select></label>
+    <button class="search-btn" id="searchBtn">Search Rooms <span>→</span></button>
+  </div>
+</section>
+
+<section class="intro section-pad">
+  <div class="section-label reveal">WELCOME TO LUXESTAY</div>
+  <div class="intro-grid">
+    <h2 class="display reveal">More than a room.<br><em>A feeling.</em></h2>
+    <div class="intro-copy reveal"><p>Designed for guests who appreciate the finer things, LuxeStay blends timeless architecture with contemporary comfort.</p><p>From sunrise breakfasts to late-night city views, every detail is crafted to make your stay effortless.</p><a href="#experience" class="arrow-link">Our story <span>↗</span></a></div>
+  </div>
+  <div class="counters">
+    <div class="reveal"><b data-n="20">0</b><span>Rooms &amp; suites</span></div>
+    <div class="reveal" style="--d:.1s"><b data-n="24" data-s="/7">0</b><span>Guest service</span></div>
+    <div class="reveal" style="--d:.2s"><b data-n="4.9" data-f="1">0</b><span>Guest rating</span></div>
+    <div class="reveal" style="--d:.3s"><b data-n="9500" data-p="PKR ">0</b><span>Starting per night</span></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div><span>Infinity rooftop pool</span><span>Wellness &amp; spa</span><span>Signature dining</span><span>24/7 concierge</span><span>Airport transfer</span><span>Free Wi-Fi</span><span>Infinity rooftop pool</span><span>Wellness &amp; spa</span><span>Signature dining</span><span>24/7 concierge</span><span>Airport transfer</span><span>Free Wi-Fi</span></div></div>
+
+<section class="rooms-section section-pad" id="rooms">
+  <div class="section-heading reveal"><div><div class="section-label">STAY YOUR WAY</div><h2 class="display">Rooms &amp; <em>Suites</em></h2></div><p>Twenty private sanctuaries. Choose your view, your space and your budget. All prices are per night in PKR.</p></div>
+  <div class="filter-bar reveal">
+    <div class="chips" id="typeChips"></div>
+    <div class="range-wrap"><div class="range-top"><span>Budget per night</span><strong>Up to PKR <span id="priceValue"></span></strong></div><input id="priceRange" type="range" min="9500" max="90000" step="500" value="90000"></div>
+    <div class="sort-wrap"><select id="sortSel" aria-label="Sort rooms"><option value="">Recommended</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select><div class="room-count"><b id="roomCount">20</b> rooms</div></div>
+  </div>
+  <div class="rooms-grid" id="roomsGrid"></div>
+  <p class="empty" id="emptyRooms" hidden>No rooms match these filters. Try a higher budget or fewer guests.</p>
+</section>
+
+<section class="amenities-section" id="amenities">
+  <div class="amenities-image reveal"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=80" alt="Hotel spa" loading="lazy"></div>
+  <div class="amenities-content">
+    <div class="section-label reveal">THE LUXESTAY STANDARD</div>
+    <h2 class="display reveal">Everything you need.<br><em>Nothing you don't.</em></h2>
+    <div class="amenity-list">
+      <div class="amenity reveal"><span>01</span><div><h3>24/7 Personal Service</h3><p>Our guest team is always one message away.</p></div></div>
+      <div class="amenity reveal"><span>02</span><div><h3>Infinity Rooftop Pool</h3><p>Swim above the city with uninterrupted views.</p></div></div>
+      <div class="amenity reveal"><span>03</span><div><h3>Wellness &amp; Spa</h3><p>Restorative treatments, sauna and private wellness suites.</p></div></div>
+      <div class="amenity reveal"><span>04</span><div><h3>Signature Dining</h3><p>Locally inspired menus from breakfast to late night.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="experience section-pad" id="experience">
+  <div class="section-heading reveal"><div><div class="section-label">BEYOND THE ROOM</div><h2 class="display">Make it <em>memorable.</em></h2></div><p>Curated experiences turn a great stay into the story you tell everyone about.</p></div>
+  <div class="experience-grid">
+    <div class="experience-card large reveal" style="background-image:url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=80')"><div><span>01 · CITY</span><h3>Private City Escape</h3><a href="#rooms">Explore →</a></div></div>
+    <div class="experience-card reveal" style="--d:.1s;background-image:url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80')"><div><span>02 · WELLNESS</span><h3>Sunrise Ritual</h3><a href="#rooms">Explore →</a></div></div>
+    <div class="experience-card reveal" style="--d:.2s;background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80')"><div><span>03 · DINING</span><h3>Chef's Table</h3><a href="#rooms">Explore →</a></div></div>
+  </div>
+</section>
+
+<section class="reviews-section section-pad" id="reviews">
+  <div class="section-label reveal">GUEST NOTES</div>
+  <div class="review-wrap reveal">
+    <div class="quote-mark">“</div>
+    <div class="review-slider" id="reviewSlider">
+      <article class="review active"><p>From the first welcome to the final morning, everything felt considered. The room was stunning, the service effortless, and the view was unforgettable.</p><div class="review-person"><div class="avatar">AM</div><div><strong>Amelia Morgan</strong><span>London, UK · Stayed 4 nights</span></div><b>★★★★★</b></div></article>
+      <article class="review"><p>LuxeStay manages to feel intimate despite being a full-service luxury hotel. The breakfast and rooftop pool were highlights of our trip.</p><div class="review-person"><div class="avatar">DK</div><div><strong>Daniel Kim</strong><span>Seoul, South Korea · Stayed 3 nights</span></div><b>★★★★★</b></div></article>
+      <article class="review"><p>The suite exceeded expectations. Beautiful design, excellent housekeeping and genuinely thoughtful staff. We will absolutely return.</p><div class="review-person"><div class="avatar">SR</div><div><strong>Sofia Rossi</strong><span>Milan, Italy · Stayed 5 nights</span></div><b>★★★★★</b></div></article>
+    </div>
+    <div class="review-controls"><button id="reviewPrev" aria-label="Previous review">←</button><span id="reviewNum">01 / 03</span><button id="reviewNext" aria-label="Next review">→</button></div>
+  </div>
+</section>
+
+<section class="final-cta"><div class="cta-bg"></div><div class="cta-content reveal"><div class="section-label light">YOUR NEXT ESCAPE</div><h2 class="display light">Your room is<br><em>waiting.</em></h2><a href="#rooms" class="btn btn-gold">Browse Rooms <span>→</span></a></div></section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="footer-top">
+    <div><a class="logo footer-logo" href="#home"><span class="logo-mark">L</span><span>Luxe<b>Stay</b></span></a><p>Thoughtful luxury.<br>Beautifully delivered.</p></div>
+    <div class="footer-col"><h4>Explore</h4><a href="#rooms">Rooms &amp; Suites</a><a href="#amenities">Amenities</a><a href="#experience">Experiences</a><a href="#reviews">Guest Reviews</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="mailto:syedhasanshahqadri@gmail.com">syedhasanshahqadri@gmail.com</a><a href="tel:03009260391">0300-9260391</a><a href="https://wa.me/923009260391">WhatsApp us</a><span>Karachi, Pakistan</span></div>
+    <div class="footer-col"><h4>Stay in touch</h4><p>Monthly inspiration, offers &amp; hotel news.</p><form id="newsletter"><input type="email" placeholder="Your email address" required aria-label="Email address"><button aria-label="Subscribe">→</button></form></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 LuxeStay. All rights reserved.</span><span>Privacy · Terms · Accessibility</span></div>
+</footer>
+
+<div class="modal" id="bookingModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div id="bookView">
+      <div class="section-label">RESERVATION</div>
+      <h2>Book your <em>stay.</em></h2>
+      <form id="bookingForm">
+        <div class="selected-room"><div><span>Selected room</span><strong id="selectedRoom"></strong></div><b>PKR <span id="selectedPrice"></span> / night</b></div>
+        <div class="form-grid">
+          <label>First name<input name="firstName" required placeholder="Alex"></label>
+          <label>Last name<input name="lastName" required placeholder="Morgan"></label>
+          <label>Email<input type="email" name="email" required placeholder="alex@example.com"></label>
+          <label>Guests<select name="guests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option></select></label>
+          <label>Check in<input type="date" name="checkin" id="fIn" required></label>
+          <label>Check out<input type="date" name="checkout" id="fOut" required></label>
+        </div>
+        <div class="total-box"><span id="nightsTxt">Select your dates</span><b id="totalTxt"></b></div>
+        <h3 class="pay-title">Payment method</h3>
+        <div class="pays">
+          <label class="pay"><input type="radio" name="pay" value="easypaisa" checked> Easypaisa</label>
+          <label class="pay"><input type="radio" name="pay" value="jazzcash"> JazzCash</label>
+          <label class="pay"><input type="radio" name="pay" value="cash"> Cash at the hotel</label>
+        </div>
+        <div class="wallet" id="wallet"><img id="walletQr" alt="Payment QR code"><div><p>Send <b id="walletAmt"></b> to <b id="walletNum"></b>, then enter the transaction ID.</p><input name="trx" id="trx" placeholder="Transaction ID"></div></div>
+        <p class="note-box" id="cashNote" hidden>Pay in cash when you arrive at the hotel. Your room is held for you once the booking is confirmed.</p>
+        <button class="btn btn-dark" type="submit" id="confirmBtn">Confirm Reservation <span>→</span></button>
+        <p class="err" id="bookErr" role="alert"></p>
+      </form>
+    </div>
+    <div class="success-message" id="successMessage" hidden></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="js/rooms.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
