@@ -2,25 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="LuxeStay - premium hotel booking with 20 rooms and suites, priced per night in PKR.">
+<meta name="theme-color" content="#1A0B0B">
 <title>LuxeStay | Luxury Hotel Booking</title>
 <script>document.documentElement.dataset.theme=localStorage.getItem("lx_theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="loader" id="loader" aria-hidden="true"><div class="ring"></div><div class="lname">Luxe<b>Stay</b></div></div>
+<div class="progress" id="bar"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
 <header class="navbar" id="navbar">
   <a class="logo" href="#home" aria-label="LuxeStay home"><span class="logo-mark">L</span><span>Luxe<b>Stay</b></span></a>
   <nav class="nav-links" id="navLinks">
     <a href="#home">Home</a><a href="#rooms">Rooms</a><a href="#amenities">Amenities</a><a href="#experience">Experience</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
   </nav>
   <div class="nav-right">
-    <button class="icon-btn" id="themeBtn" aria-label="Switch light or dark theme">◐</button>
+    <button class="icon-btn" id="themeBtn" aria-label="Switch light or dark theme"></button>
     <a class="nav-cta" href="#rooms">Book Now <span>↗</span></a>
-    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
 
@@ -32,6 +38,7 @@
     <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80')"></div>
   </div>
   <div class="hero-overlay"></div>
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="hero-content">
     <p class="eyebrow light rise" style="--d:.1s">5-STAR URBAN RETREAT</p>
     <h1 class="rise" style="--d:.25s">Stay somewhere<br><em>extraordinary.</em></h1>
@@ -68,7 +75,7 @@
   <div class="section-heading reveal"><div><div class="section-label">STAY YOUR WAY</div><h2 class="display">Rooms &amp; <em>Suites</em></h2></div><p>Twenty private sanctuaries. Choose your view, your space and your budget. All prices are per night in PKR.</p></div>
   <div class="filter-bar reveal">
     <div class="chips" id="typeChips"></div>
-    <div class="range-wrap"><div class="range-top"><span>Budget per night</span><strong>Up to PKR <span id="priceValue"></span></strong></div><input id="priceRange" type="range" min="9500" max="90000" step="500" value="90000"></div>
+    <div class="range-wrap"><div class="range-top"><span>Budget per night</span><strong>Up to PKR <span id="priceValue"></span></strong></div><input id="priceRange" type="range" min="9500" max="90000" step="500" value="90000" aria-label="Maximum price per night"></div>
     <div class="sort-wrap"><select id="sortSel" aria-label="Sort rooms"><option value="">Recommended</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select><div class="room-count"><b id="roomCount">20</b> rooms</div></div>
   </div>
   <div class="rooms-grid" id="roomsGrid"></div>
@@ -124,15 +131,17 @@
   <div class="footer-bottom"><span>© 2026 LuxeStay. All rights reserved.</span><span>Privacy · Terms · Accessibility</span></div>
 </footer>
 
+<button class="totop" id="toTop" aria-label="Back to top"><svg class="ic" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
 <div class="modal" id="bookingModal" aria-hidden="true">
   <div class="modal-backdrop" data-close></div>
-  <div class="modal-card">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Book your stay">
     <button class="modal-close" data-close aria-label="Close">×</button>
     <div id="bookView">
       <div class="section-label">RESERVATION</div>
       <h2>Book your <em>stay.</em></h2>
       <form id="bookingForm">
-        <div class="selected-room"><div><span>Selected room</span><strong id="selectedRoom"></strong></div><b>PKR <span id="selectedPrice"></span> / night</b></div>
+        <div class="selected-room"><img id="selectedImg" alt="" onerror="this.style.display='none'"><div><span>Selected room</span><strong id="selectedRoom"></strong></div><b>PKR <span id="selectedPrice"></span> / night</b></div>
         <div class="form-grid">
           <label>First name<input name="firstName" required placeholder="Alex"></label>
           <label>Last name<input name="lastName" required placeholder="Morgan"></label>
